@@ -1,3 +1,4 @@
+using System.IdentityModel.Tokens.Jwt;
 using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NISLAVITZ_API_SERVICES.Services;
 using NISLAVITZ_API_UI.Contracts.Requests;
 using NISLAVITZ_API_UI.Extensions;
 using NISLAVITZ_API_UI.Models;
@@ -59,7 +61,9 @@ namespace NISLAVITZ_API_UI
 
 		public static void ServiceRegistration(IServiceCollection services)
 		{
-			
+			services.AddScoped<JwtSecurityTokenHandler>();
+			services.AddScoped<ITokenService, TokenService>();
+			services.AddScoped<IAuthService, AuthService>();
 		}
 
 		public static void EntityFrameworkDBConnection(IServiceCollection services)
