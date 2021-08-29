@@ -87,10 +87,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Contracts\Responses\Implementations\Auth\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\NISLAVITZ_API_SERVICES\NISLAVITZ_API_SERVICES.csproj" />
 	</ItemGroup>
 	
