@@ -87,7 +87,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Contracts\Responses\Implementations\Auth\" />
+	  <Folder Include="Contracts\Requests\Auth\" />
+	  <Folder Include="Contracts\Responses\NewFolder\" />
 	</ItemGroup>
 	
 </Project>

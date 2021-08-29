@@ -1,9 +1,11 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NISLAVITZ_API_UI.Contracts.Requests;
 using NISLAVITZ_API_UI.Extensions;
 using NISLAVITZ_API_UI.Models;
 
@@ -23,6 +25,7 @@ namespace NISLAVITZ_API_UI
 			ServiceRegistration(services);
 			EntityFrameworkDBConnection(services);
 			HttpClientsRegistration(services);
+			ModelValidatorsRegistration(services);
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
 			services.AddControllers();
@@ -70,6 +73,11 @@ namespace NISLAVITZ_API_UI
 			{
 				config.DefaultRequestHeaders.Add("Accept", "text/plain");
 			});
+		}
+
+		public static void ModelValidatorsRegistration(IServiceCollection services)
+		{
+			services.AddTransient<IValidator<AuthenticateAndGetUserInfoReq>, AuthenticateAndGetUserInfoReqValidator>();
 		}
 	}
 }

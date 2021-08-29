@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NISLAVITZ_API_UI.Contracts.Requests;
 
 namespace NISLAVITZ_API_UI.Controllers
 {
@@ -8,8 +10,9 @@ namespace NISLAVITZ_API_UI.Controllers
 	public class AuthController : ControllerBase
 	{
 		[HttpPost]
-		[Route("GetToken")]
-		public async Task<ActionResult<bool>> GetToken()
+		[Route("AuthenticateAndGetUserInfo")]
+		[ProducesResponseType(typeof(AuthenticateAndGetUserInfoReqErrorScheme), (int) HttpStatusCode.BadRequest)]
+		public async Task<ActionResult<bool>> AuthenticateAndGetUserInfo()
 		{
 			return Ok(new { Success = true });
 		}
