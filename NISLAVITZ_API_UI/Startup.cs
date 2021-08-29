@@ -61,6 +61,7 @@ namespace NISLAVITZ_API_UI
 
 		public static void ServiceRegistration(IServiceCollection services)
 		{
+			services.AddSingleton<IUsersService, UsersService>();
 			services.AddScoped<JwtSecurityTokenHandler>();
 			services.AddScoped<ITokenService, TokenService>();
 			services.AddScoped<IAuthService, AuthService>();

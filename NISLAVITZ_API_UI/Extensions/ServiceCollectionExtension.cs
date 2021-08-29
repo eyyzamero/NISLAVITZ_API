@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using NISLAVITZ_API_SERVICES.Mappings;
 using NISLAVITZ_API_UI.Configs;
 using NISLAVITZ_API_UI.Models;
 
@@ -49,7 +50,7 @@ namespace NISLAVITZ_API_UI.Extensions
 
 			var config = new MapperConfiguration(x =>
 			{
-				// for ex. x.AddProfile(new AuthProfile());
+				x.AddProfile(new UsersProfile());
 			});
 			var mapper = config.CreateMapper();
 			services.AddSingleton(mapper);
